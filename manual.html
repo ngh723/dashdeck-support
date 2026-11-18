@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DashDeck — User Guide</title>
+<!-- 사용 설명서. 지원 페이지(index.html)와 같은 틀: 영어 우선 + 한국어 전환 -->
+<style>
+  body { font-family: -apple-system, "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+         max-width: 640px; margin: 0 auto; padding: 32px 24px 48px; line-height: 1.7;
+         color: #1d1d1f; background: #fff; }
+  h1 { font-size: 1.7em; margin-bottom: .2em; }
+  .tagline { color: #6e6e73; margin-top: 0; }
+  h2 { font-size: 1.15em; margin-top: 2.2em; }
+  ol li, ul li { margin: .4em 0; }
+  a { color: #0066cc; text-decoration: none; }
+  .download { display: inline-block; background: #0066cc; color: #fff; border-radius: 999px;
+         padding: 8px 20px; font-weight: 600; margin: .4em 0; }
+  .need { border: 1px solid #0066cc33; background: #0066cc0d; border-radius: 14px; padding: 14px 18px; margin: 1.2em 0; }
+  .need strong { color: #0066cc; }
+  .step { margin-top: 2.4em; }
+  .step h3 { font-size: 1.05em; margin: 0 0 .3em; display: flex; gap: .6em; align-items: baseline; }
+  .step h3 .n { flex: none; width: 1.7em; height: 1.7em; border-radius: 50%; background: #0066cc; color: #fff;
+         display: inline-grid; place-items: center; font-size: .85em; }
+  figure { margin: 1em 0 0; }
+  figure img { display: block; max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 24px #0002; }
+  figure img.mac { width: 520px; }
+  figcaption { font-size: .85em; color: #6e6e73; margin-top: .5em; }
+  .tip { font-size: .9em; color: #6e6e73; }
+  footer { margin-top: 3em; font-size: .85em; color: #86868b; }
+  nav.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+  nav.langs button { font: inherit; font-size: .82em; color: #1d1d1f; cursor: pointer;
+         background: #f2f2f7; border: 1px solid transparent; border-radius: 999px; padding: 3px 11px; }
+  nav.langs button[aria-current="true"] { background: #0066cc; color: #fff; }
+  section[data-lang] { display: none; }
+  section[data-lang].on { display: block; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1c1c1e; color: #f2f2f7; }
+    .tagline { color: #98989d; }
+    a { color: #64a8ff; } footer { color: #8e8e93; }
+    .download { background: #0a84ff; color: #fff; }
+    .need { border-color: #0a84ff55; background: #0a84ff1a; } .need strong { color: #64a8ff; }
+    .step h3 .n { background: #0a84ff; } figcaption, .tip { color: #98989d; }
+    nav.langs button { background: #2c2c2e; color: #f2f2f7; }
+    nav.langs button[aria-current="true"] { background: #0a84ff; color: #fff; }
+  }
+</style>
+
+<style>
+  .toc { columns: 2; font-size: .92em; padding-left: 1.2em; }
+  .toc li { margin: .15em 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .92em; margin: .8em 0; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 8px; border-bottom: 1px solid #0001; }
+  th { font-weight: 600; }
+  .shot { position: relative; margin: 1em 0 0; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 24px #0002; }
+  .pin { position: absolute; transform: translate(-50%, -50%); width: 26px; height: 26px; border-radius: 50%;
+         background: #ff9f0a; color: #000; font-weight: 700; font-size: 14px; display: grid; place-items: center;
+         box-shadow: 0 0 0 3px #fff9; }
+  .back { font-size: .9em; }
+  kbd { font: inherit; font-size: .9em; padding: 0 .35em; border-radius: 5px; background: #0000000f; }
+  @media (prefers-color-scheme: dark) { th, td { border-color: #fff2; } kbd { background: #ffffff1a; } }
+  @media (max-width: 560px) { .toc { columns: 1; } }
+</style>
+</head>
+<body>
+
+<h1>DashDeck User Guide</h1>
+<p class="tagline">Everything DashDeck and DashDeck Helper can do</p>
+<nav class="langs" id="langs" aria-label="Language"></nav>
+
+<section data-lang="en" class="on">
+<p class="back"><a href="index.html">← Support &amp; setup guide</a></p>
+<p>This guide covers everything DashDeck can do. If you haven't connected your Mac yet, start with the
+<a href="index.html">step-by-step setup guide</a>.</p>
+<ol class="toc">
+  <li><a href="#en-layout">The screen at a glance</a></li><li><a href="#en-connect">Connecting</a></li>
+  <li><a href="#en-apps">App launcher</a></li><li><a href="#en-files">Drives, folders &amp; files</a></li>
+  <li><a href="#en-widgets">Widgets</a></li><li><a href="#en-music">Music page</a></li>
+  <li><a href="#en-controls">Control strip</a></li><li><a href="#en-bookmarks">Bookmarks strip</a></li>
+  <li><a href="#en-look">Background &amp; Glass</a></li><li><a href="#en-helper">DashDeck Helper on your Mac</a></li>
+  <li><a href="#en-pro">Free trial &amp; DashDeck Pro</a></li><li><a href="#en-trouble">Troubleshooting</a></li>
+  <li><a href="#en-notes">Good to know</a></li>
+</ol>
+
+<h2 id="en-layout">1. The screen at a glance</h2>
+<div class="shot"><img src="guide-en-done.jpg" alt="DashDeck on iPad with numbered areas" loading="lazy"><span class="pin" style="left:3%;top:4%">1</span><span class="pin" style="left:3%;top:63%">2</span><span class="pin" style="left:3%;top:90%">3</span><span class="pin" style="left:52%;top:4%">4</span><span class="pin" style="left:71%;top:85.6%">5</span><span class="pin" style="left:52%;top:90%">6</span></div>
+<ol>
+  <li><strong>App launcher</strong> — your Mac's apps. Tap to open one on the Mac.</li>
+  <li><strong>Drives &amp; folders</strong> — Macintosh HD, external and network drives, and your main folders.</li>
+  <li><strong>Control strip</strong> — sound, Wi-Fi, AirDrop, Focus, Dark Mode and more.</li>
+  <li><strong>Widget board</strong> — clock, weather, calendar and Mac status. Swipe left and right for more pages.</li>
+  <li><strong>Page dots</strong> — how many widget pages you have. The last page is always the music page.</li>
+  <li><strong>Bookmarks strip</strong> — your browser's bookmarks bar. Tap to open a site on the Mac.</li>
+</ol>
+
+<h2 id="en-connect">2. Connecting</h2>
+<ul>
+  <li>The first time, pair your Mac with the 8-character code — see the <a href="index.html">setup guide</a>.</li>
+  <li>After that, DashDeck connects by itself within a few seconds whenever the iPad and Mac are on the same Wi-Fi network
+      or connected with a USB cable, and DashDeck Helper is running.</li>
+  <li>If the connection drops, the screen dims and "Waiting for your Mac" appears. It goes away by itself when the Mac is back
+      (a drop of under 2 seconds isn't shown at all).</li>
+  <li>No Mac nearby? Tap <strong>Open Without Mac</strong> (it appears after about 8 seconds). The iPad-only widgets keep working.</li>
+  <li>To see the pairing code again later: touch and hold an app icon → <strong>Edit Home Screen</strong> → <strong>Background</strong>.</li>
+  <li>The connection is encrypted, and only a Mac that knows your code can connect.</li>
+</ul>
+
+<h2 id="en-apps">3. App launcher</h2>
+<ul>
+  <li><strong>Tap</strong> an icon to open that app on your Mac.</li>
+  <li><strong>Glowing icons</strong> are apps that are running on the Mac right now.</li>
+  <li>Order: running apps first, then recently used apps, then the apps you use most (counted over the last 30 days).</li>
+  <li><strong>Swipe</strong> left or right for more pages (20 apps per page).</li>
+  <li>Touch and hold an icon for <strong>Remove from Launcher</strong> or <strong>Edit Home Screen</strong>. While editing:
+    <ul>
+      <li><strong>−</strong> hides an app, <strong>+</strong> brings hidden apps back.</li>
+      <li><strong>Background</strong> opens Background &amp; Glass.</li>
+      <li>The control strip can be edited at the same time (see <a href="#en-controls">Control strip</a>).</li>
+      <li><strong>Done</strong> finishes.</li>
+    </ul></li>
+</ul>
+<figure><img src="manual-en-edit.jpg" alt="Edit mode: the board shows minus and resize buttons on each widget" loading="lazy"></figure>
+
+<h2 id="en-files">4. Drives, folders &amp; files</h2>
+<p>Order: Macintosh HD → external drives → network drives → folders on your Desktop → Documents, Photos, Movies, Music, Downloads.</p>
+<ul>
+  <li><strong>Tap a folder</strong> to go inside. <strong>Home</strong> and <strong>Back</strong> buttons appear on the left.</li>
+  <li><strong>Tap a file</strong> to preview it on the first widget page:
+    <ul>
+      <li>Photos and documents: view large, pinch to zoom.</li>
+      <li>Music: plays right on the iPad.</li>
+      <li>Video: MP4 and MOV play on the iPad, streamed from the Mac (scrub and full screen work). Other formats such as MKV
+          or AVI don't play on the iPad — double-tap to open them on the Mac.</li>
+    </ul></li>
+  <li><strong>Double-tap</strong> to open on the Mac (folders in Finder, files in their default app).</li>
+  <li>In a preview, <strong>Show Enclosing Folder</strong> opens the folder in Finder with the file selected.</li>
+  <li>Folder lists and thumbnails are kept on the iPad for 30 days so they appear instantly next time.</li>
+</ul>
+
+<h2 id="en-widgets">5. Widgets</h2>
+<p>Swipe the widget board left and right to change pages. A file preview opens on the first page; the last page is the music page.</p>
+<h3>Add, remove, resize, reorder</h3>
+<ol>
+  <li>Touch and hold a widget → <strong>Edit Widget</strong>.</li>
+  <li><strong>+</strong> (top left): pick a widget, pick a size, <strong>Add Widget</strong>.</li>
+  <li><strong>−</strong> removes a widget. The arrow in the corner changes its size. Drag to reorder.</li>
+  <li><strong>Done</strong>.</li>
+</ol>
+<figure><img src="manual-en-widgets.jpg" alt="The widget gallery" loading="lazy"></figure>
+<table><tr><th>Size</th><th>Space</th></tr>
+<tr><td>Half</td><td>1 column × half a row</td></tr><tr><td>Small</td><td>1 × 1</td></tr>
+<tr><td>Medium</td><td>2 × 1</td></tr><tr><td>Large</td><td>2 × 2</td></tr></table>
+<p class="tip">Not every widget comes in every size.</p>
+
+<h3>Widgets that work on the iPad alone</h3>
+<table><tr><th>Widget</th><th>What it shows</th></tr>
+<tr><td>Clock / World Clock</td><td>The time here, or another city's time on an analog clock.</td></tr>
+<tr><td>Weather</td><td>Current weather where you are, hourly and 5-day forecast (data: MET Norway). Needs Location.</td></tr>
+<tr><td>Events</td><td>This month's calendar and the day's events. Tap a date to jump to it. Your Mac's events are included too.</td></tr>
+<tr><td>Photos</td><td>A photo you pick. In edit mode, <strong>Change Photo</strong>.</td></tr>
+<tr><td>Timer</td><td>Tap its name to switch between timer and stopwatch. You get a notification when it ends, even in another app.</td></tr>
+<tr><td>D-day</td><td>Counts the days to a date. Tap to set the name and date.</td></tr>
+<tr><td>Notes</td><td>Type right in the widget.</td></tr>
+<tr><td>Reminders</td><td>Tap the circle to complete a reminder (it syncs to your Mac through iCloud).</td></tr>
+<tr><td>Health Summary</td><td>Activity rings (or step and calorie goals), steps, sleep and resting heart rate, compared with your 7-day average. Large size adds recent workouts.</td></tr>
+<tr><td>Health Trends</td><td>7- and 30-day charts for steps, sleep, heart rate, weight and more. Touch and hold to pick what to show.</td></tr></table>
+<p class="tip">Health data is read on the iPad only and never leaves it.</p>
+
+<h3>Widgets that show your Mac</h3>
+<table><tr><th>Widget</th><th>What it shows</th></tr>
+<tr><td>Mac Status / Processor / Memory / Network</td><td>Usage and live graphs. For Network, touch and hold to choose the connection.</td></tr>
+<tr><td>Storage / Battery</td><td>Free disk space; battery of a MacBook and Bluetooth devices.</td></tr>
+<tr><td>Screen Time Today</td><td>How long you used each app today.</td></tr>
+<tr><td>Processes</td><td>What's using the most CPU. In Medium and Large, quit one with ✕.</td></tr>
+<tr><td>Internet</td><td>Response time, your public IP address and recent outages.</td></tr>
+<tr><td>Now Playing</td><td>Control Music, Spotify or YouTube in Chrome.</td></tr>
+<tr><td>Recent Files / Downloads</td><td>Tap to preview, double-tap to open on the Mac.</td></tr>
+<tr><td>Clipboard</td><td>What you copied on the Mac. <strong>iPad → Mac</strong> sends the other way.</td></tr>
+<tr><td>Time Machine</td><td>When the last backup finished.</td></tr>
+<tr><td>NAS</td><td>Storage and disk temperature of a Synology NAS (set it up in the Helper: <strong>Connect a NAS…</strong>).</td></tr>
+<tr><td>Rendering</td><td>Export progress in Final Cut Pro, Compressor, Premiere Pro and DaVinci Resolve. For Final Cut Pro, keep its Background Tasks window (<kbd>⌘9</kbd>) open. Needs Accessibility.</td></tr></table>
+
+<h2 id="en-music">6. Music page</h2>
+<p>The last widget page controls the Music app on your Mac.</p>
+<ul>
+  <li><strong>Top</strong>: album art, a progress bar you can drag, shuffle, previous, play, next, repeat and volume.</li>
+  <li><strong>Below</strong>: your playlists and recently added albums. Tap one to see its songs; tap a song to play it on the Mac,
+      or use <strong>Play</strong> / <strong>Shuffle</strong>.</li>
+  <li>Playlists with more than 500 songs show the first 500.</li>
+  <li>Needs the Music Control permission in the Helper's setup.</li>
+</ul>
+
+<h2 id="en-controls">7. Control strip</h2>
+<table><tr><th>Tile</th><th>Tap</th><th>Touch and hold</th></tr>
+<tr><td>Sound</td><td>Drag to change the volume, tap the speaker to mute</td><td>Choose the output device</td></tr>
+<tr><td>Wi-Fi</td><td>Turn on or off (asks before turning off)</td><td>Join a nearby network (needs Location)</td></tr>
+<tr><td>AirDrop</td><td>Turn on (Contacts Only) or off</td><td>Off / Contacts Only / Everyone</td></tr>
+<tr><td>Focus</td><td>Do Not Disturb on or off</td><td>Choose another Focus</td></tr>
+<tr><td>Dark Mode</td><td>Switch between light and dark</td><td>—</td></tr>
+<tr><td>Sleep Display</td><td>Turn the Mac's display off</td><td>—</td></tr>
+<tr><td>Mission Control / Screenshot</td><td>Open them on the Mac</td><td>—</td></tr></table>
+<ul>
+  <li>The first time you use Focus, macOS may ask to add a shortcut — click <strong>Add</strong> once. macOS lets apps change Focus only through Shortcuts.</li>
+  <li>To add or remove tiles: touch and hold an app icon → <strong>Edit Home Screen</strong>. Tiles show <strong>−</strong>, and
+      a <strong>+</strong> tile adds more.</li>
+  <li>If your sound output is an audio interface, its volume is set with the device's own knob.</li>
+</ul>
+
+<h2 id="en-bookmarks">8. Bookmarks strip</h2>
+<ul>
+  <li>It starts empty. Tap <strong>Import</strong> and choose <strong>Safari</strong> or <strong>Chrome</strong> to bring in that browser's bookmarks bar.</li>
+  <li>Tap a bookmark to open it in that browser on the Mac. Folders open inside the strip.</li>
+  <li>To switch browsers or clear the strip, tap <strong>Change</strong> at the end.</li>
+  <li>Reading bookmarks needs Full Disk Access. If it's missing, your Mac opens the right settings and a short guide by itself.</li>
+  <li>Safari doesn't share site icons, so Safari bookmarks show a plain globe.</li>
+</ul>
+
+<h2 id="en-look">9. Background &amp; Glass</h2>
+<p>Touch and hold an app icon → <strong>Edit Home Screen</strong> → <strong>Background</strong>.</p>
+<ul>
+  <li><strong>Mac Wallpaper</strong> follows your Mac's wallpaper, or <strong>Choose from Photos</strong>. A slider blurs it.</li>
+  <li><strong>Glass</strong>: Clear lets more of the background through; the slider makes the glass darker.</li>
+  <li>Your <strong>pairing code</strong> and your DashDeck Pro status are shown here too.</li>
+</ul>
+<figure><img src="manual-en-settings.jpg" alt="Background and Glass settings with the pairing code" loading="lazy">
+<figcaption>The code in the picture is an example.</figcaption></figure>
+
+<h2 id="en-helper">10. DashDeck Helper on your Mac</h2>
+<p>The Helper runs in the menu bar and starts when you log in. Its menu shows the connection status and has:</p>
+<ul>
+  <li><strong>Settings…</strong> — the iPad connection and pairing code, NAS, and Other: <strong>Run Setup Again…</strong>,
+      <strong>Import Bookmarks</strong>, <strong>Bookmark Permission…</strong>, <strong>Quit Helper</strong>.</li>
+  <li><strong>Connect a NAS…</strong> — address, user name and password of a Synology NAS. The password is stored only in your Mac's keychain.</li>
+  <li><strong>Get Version …</strong> — appears when a newer Helper is on this site. The Helper checks once a day.</li>
+</ul>
+<table><tr><th>Permission</th><th>Used for</th></tr>
+<tr><td>Calendar</td><td>Your Mac's events in the Events widget</td></tr>
+<tr><td>Automation (Music, Spotify, Chrome)</td><td>Now Playing and the music page</td></tr>
+<tr><td>Accessibility</td><td>The Rendering widget</td></tr>
+<tr><td>Location</td><td>Wi-Fi network names in the control strip</td></tr>
+<tr><td>Full Disk Access</td><td>The bookmarks strip and the Focus list</td></tr>
+<tr><td>Local Network</td><td>Finding and connecting to your iPad</td></tr></table>
+<p class="tip">Can't see the menu bar icon? Open DashDeck Helper again from Applications and the settings window appears.
+To show the icon: System Settings → Menu Bar → Allow in the Menu Bar → DashDeck Helper.</p>
+
+<h2 id="en-pro">11. Free trial &amp; DashDeck Pro</h2>
+<ul>
+  <li>Everything is free for 7 days from the first launch.</li>
+  <li>After that, the iPad-only widgets stay free. The features that use your Mac — app launcher, files, music, control strip,
+      Mac widgets and bookmarks — need <strong>DashDeck Pro</strong>.</li>
+  <li>Pro comes three ways: monthly, yearly, or a one-time lifetime purchase. Prices are shown in your currency in the app.</li>
+  <li><strong>Restore Purchases</strong> brings back Pro on a new iPad.</li>
+  <li>Cancel a subscription in Settings → your name → Subscriptions, or with <strong>Manage Subscription</strong> in Background &amp; Glass.</li>
+</ul>
+<figure><img src="manual-en-pro.jpg" alt="The DashDeck Pro purchase screen with monthly, yearly and lifetime options" loading="lazy" style="max-width:420px"></figure>
+
+<h2 id="en-trouble">12. Troubleshooting</h2>
+<table><tr><th>Problem</th><th>What to do</th></tr>
+<tr><td>Stuck on "Waiting for your Mac"</td><td>Check that DashDeck Helper is running and both devices are on the same Wi-Fi. On the iPad: Settings → DashDeck → Local Network on. On the Mac: System Settings → Privacy &amp; Security → Local Network → DashDeck Helper on.</td></tr>
+<tr><td>The Helper says the pairing code doesn't match</td><td>Enter the code shown on the iPad again in the Helper's settings.</td></tr>
+<tr><td>"… is out of date"</td><td>Update the app it names: DashDeck from the App Store, DashDeck Helper from this site.</td></tr>
+<tr><td>A Mac widget says it couldn't get info</td><td>Make sure DashDeck Helper is running and up to date.</td></tr>
+<tr><td>Now Playing is empty</td><td>Mac: System Settings → Privacy &amp; Security → Automation → allow Music, Spotify or Chrome for DashDeck Helper.</td></tr>
+<tr><td>YouTube in Chrome doesn't play or pause</td><td>In Chrome: View → Developer → Allow JavaScript from Apple Events.</td></tr>
+<tr><td>Rendering widget is empty</td><td>Allow Accessibility for DashDeck Helper. In Final Cut Pro, open the Background Tasks window (<kbd>⌘9</kbd>).</td></tr>
+<tr><td>Bookmarks strip is empty</td><td>Tap Import and choose a browser. Allow Full Disk Access for DashDeck Helper.</td></tr>
+<tr><td>NAS widget shows an error</td><td>Helper menu → NAS settings: check the address, user name and password.</td></tr>
+<tr><td>No weather</td><td>iPad: Settings → DashDeck → Location → While Using the App.</td></tr>
+<tr><td>The screen doesn't respond</td><td>Swipe up to close DashDeck and open it again.</td></tr></table>
+
+<h2 id="en-notes">13. Good to know</h2>
+<ul>
+  <li>The iPad screen stays on while DashDeck is open.</li>
+  <li>Text and images you copy on the Mac show up in the Clipboard widget. Items copied from password managers are skipped.</li>
+  <li>To stop the Helper starting at login: System Settings → General → Login Items → DashDeck Helper.</li>
+  <li>No account, no cloud, no tracking. See the <a href="privacy.html">Privacy Policy</a>.</li>
+</ul>
+</section>
+
+<section data-lang="ko">
+<p class="back"><a href="index.html">← 지원·설치 안내</a></p>
+<p>DashDeck의 모든 기능을 설명합니다. 아직 맥과 연결하지 않았다면 <a href="index.html">설치 안내</a>부터 보세요.</p>
+<ol class="toc">
+  <li><a href="#ko-layout">화면 한눈에 보기</a></li><li><a href="#ko-connect">연결</a></li>
+  <li><a href="#ko-apps">앱 실행 판</a></li><li><a href="#ko-files">드라이브·폴더·파일</a></li>
+  <li><a href="#ko-widgets">위젯</a></li><li><a href="#ko-music">음악 페이지</a></li>
+  <li><a href="#ko-controls">조작 줄</a></li><li><a href="#ko-bookmarks">즐겨찾기 줄</a></li>
+  <li><a href="#ko-look">배경과 유리</a></li><li><a href="#ko-helper">맥의 DashDeck Helper</a></li>
+  <li><a href="#ko-pro">무료 체험과 DashDeck Pro</a></li><li><a href="#ko-trouble">문제가 생겼을 때</a></li>
+  <li><a href="#ko-notes">알아 둘 것</a></li>
+</ol>
+
+<h2 id="ko-layout">1. 화면 한눈에 보기</h2>
+<div class="shot"><img src="guide-ko-done.jpg" alt="번호가 붙은 DashDeck 아이패드 화면" loading="lazy"><span class="pin" style="left:3%;top:4%">1</span><span class="pin" style="left:3%;top:63%">2</span><span class="pin" style="left:3%;top:90%">3</span><span class="pin" style="left:52%;top:4%">4</span><span class="pin" style="left:71%;top:85.6%">5</span><span class="pin" style="left:52%;top:90%">6</span></div>
+<ol>
+  <li><strong>앱 실행 판</strong> — 맥의 앱들. 누르면 맥에서 열립니다.</li>
+  <li><strong>드라이브·폴더</strong> — Macintosh HD, 외장·네트워크 드라이브, 주요 폴더.</li>
+  <li><strong>조작 줄</strong> — 소리, Wi-Fi, AirDrop, 집중 모드, 다크 모드 등.</li>
+  <li><strong>위젯 판</strong> — 시계, 날씨, 일정, 맥 상태. 좌우로 밀면 다른 페이지.</li>
+  <li><strong>페이지 점</strong> — 위젯 페이지 수. 맨 뒤 페이지는 늘 음악 페이지입니다.</li>
+  <li><strong>즐겨찾기 줄</strong> — 브라우저의 즐겨찾기 막대. 누르면 맥에서 그 사이트가 열립니다.</li>
+</ol>
+
+<h2 id="ko-connect">2. 연결</h2>
+<ul>
+  <li>처음 한 번은 8글자 연결 코드로 맥과 짝을 맞춥니다 — <a href="index.html">설치 안내</a> 참고.</li>
+  <li>그다음부터는 아이패드와 맥이 같은 와이파이에 있거나 USB 케이블로 이어져 있고 DashDeck Helper가 켜져 있으면
+      몇 초 안에 저절로 연결됩니다.</li>
+  <li>연결이 끊기면 화면이 흐려지고 "맥을 기다리는 중"이 뜹니다. 다시 이어지면 저절로 사라집니다 (2초 안에 다시 붙으면 아무것도 뜨지 않습니다).</li>
+  <li>맥이 근처에 없으면 8초쯤 뒤 나오는 <strong>맥 없이 열기</strong>를 누르세요. 아이패드만으로 되는 위젯은 그대로 됩니다.</li>
+  <li>나중에 연결 코드를 다시 보려면: 앱 아이콘을 꾹 누르기 → <strong>홈 화면 편집</strong> → <strong>배경</strong>.</li>
+  <li>연결은 암호화되며, 내 코드를 아는 맥만 연결됩니다.</li>
+</ul>
+
+<h2 id="ko-apps">3. 앱 실행 판</h2>
+<ul>
+  <li><strong>누르기</strong>: 맥에서 그 앱이 열립니다.</li>
+  <li><strong>빛나는 아이콘</strong>: 지금 맥에서 켜져 있는 앱입니다.</li>
+  <li>순서: 켜져 있는 앱 → 최근에 쓴 앱 → 자주 쓰는 앱 (최근 30일 기준).</li>
+  <li><strong>좌우로 밀기</strong>: 다음 페이지 (한 페이지에 20개).</li>
+  <li>아이콘을 꾹 누르면 <strong>런처에서 제거</strong>, <strong>홈 화면 편집</strong>이 나옵니다. 편집 중에는:
+    <ul>
+      <li><strong>−</strong>로 앱을 숨기고, <strong>+</strong>로 숨긴 앱을 다시 꺼냅니다.</li>
+      <li><strong>배경</strong>으로 배경과 유리 설정을 엽니다.</li>
+      <li>조작 줄도 같이 편집됩니다 (<a href="#ko-controls">조작 줄</a> 참고).</li>
+      <li><strong>완료</strong>로 끝냅니다.</li>
+    </ul></li>
+</ul>
+<figure><img src="manual-ko-edit.jpg" alt="편집 화면: 위젯마다 빼기와 크기 바꾸기 버튼" loading="lazy"></figure>
+
+<h2 id="ko-files">4. 드라이브·폴더·파일</h2>
+<p>순서: Macintosh HD → 외장 드라이브 → 네트워크 드라이브 → 데스크탑의 폴더 → 문서·사진·동영상·음악·다운로드.</p>
+<ul>
+  <li><strong>폴더 누르기</strong>: 안으로 들어갑니다. 왼쪽에 <strong>처음으로</strong>와 뒤로 버튼이 생깁니다.</li>
+  <li><strong>파일 누르기</strong>: 위젯 판 첫 페이지에 미리보기가 열립니다.
+    <ul>
+      <li>사진·문서: 크게 보기, 손가락으로 확대.</li>
+      <li>음악: 아이패드에서 바로 재생.</li>
+      <li>동영상: MP4와 MOV는 맥에서 받아 오며 아이패드에서 재생됩니다 (넘기기·전체 화면 가능). MKV·AVI 같은 형식은
+          아이패드에서 재생되지 않으니 두 번 눌러 맥에서 여세요.</li>
+    </ul></li>
+  <li><strong>두 번 누르기</strong>: 맥에서 엽니다 (폴더는 Finder, 파일은 기본 앱).</li>
+  <li>미리보기의 <strong>상위 폴더 열기</strong>: 맥 Finder에서 그 파일이 든 폴더를 열고 파일을 골라 둡니다.</li>
+  <li>폴더 목록과 미리보기 그림은 아이패드에 30일 동안 남아 다음에 빨리 뜹니다.</li>
+</ul>
+
+<h2 id="ko-widgets">5. 위젯</h2>
+<p>위젯 판을 좌우로 밀어 페이지를 넘깁니다. 파일 미리보기는 첫 페이지에, 음악 페이지는 맨 뒤에 있습니다.</p>
+<h3>넣기·빼기·크기·순서</h3>
+<ol>
+  <li>위젯을 꾹 누르기 → <strong>위젯 편집</strong>.</li>
+  <li>왼쪽 위 <strong>+</strong>: 위젯 고르기 → 크기 고르기 → <strong>위젯 추가</strong>.</li>
+  <li><strong>−</strong>로 빼고, 모서리의 화살표로 크기를 바꾸고, 끌어서 순서를 바꿉니다.</li>
+  <li><strong>완료</strong>.</li>
+</ol>
+<figure><img src="manual-ko-widgets.jpg" alt="위젯 고르기 화면" loading="lazy"></figure>
+<table><tr><th>크기</th><th>차지하는 칸</th></tr>
+<tr><td>반 칸</td><td>가로 1 × 세로 반</td></tr><tr><td>작게</td><td>1 × 1</td></tr>
+<tr><td>중간</td><td>2 × 1</td></tr><tr><td>크게</td><td>2 × 2</td></tr></table>
+<p class="tip">위젯마다 고를 수 있는 크기가 다릅니다.</p>
+
+<h3>아이패드만으로 되는 위젯</h3>
+<table><tr><th>위젯</th><th>보여 주는 것</th></tr>
+<tr><td>시계 / 세계 시계</td><td>지금 시각, 다른 도시 시각(아날로그 시계).</td></tr>
+<tr><td>날씨</td><td>지금 있는 곳의 날씨, 시간별·5일 예보 (자료: 노르웨이 기상청). 위치 허용이 필요합니다.</td></tr>
+<tr><td>일정</td><td>이번 달 달력과 그날 일정. 날짜를 누르면 그날로. 맥의 일정도 함께 나옵니다.</td></tr>
+<tr><td>사진</td><td>고른 사진 한 장. 편집 중에 <strong>사진 바꾸기</strong>.</td></tr>
+<tr><td>타이머</td><td>이름을 누르면 타이머 ↔ 스톱워치. 끝나면 다른 앱을 보고 있어도 알림이 옵니다.</td></tr>
+<tr><td>D-day</td><td>정한 날까지 남은 날. 눌러서 이름과 날짜를 정합니다.</td></tr>
+<tr><td>메모</td><td>위젯 안에 바로 씁니다.</td></tr>
+<tr><td>미리 알림</td><td>동그라미를 누르면 완료 (iCloud로 맥에도 반영).</td></tr>
+<tr><td>건강 요약</td><td>활동 링(없으면 걸음·칼로리 목표), 걸음·수면·안정 심박과 지난 7일 평균 비교. 크게는 최근 운동도.</td></tr>
+<tr><td>건강 추이</td><td>걸음·수면·심박·체중 등의 7일·30일 그래프. 꾹 눌러 항목을 고릅니다.</td></tr></table>
+<p class="tip">건강 데이터는 아이패드에서만 읽고 밖으로 내보내지 않습니다.</p>
+
+<h3>맥 정보를 보여 주는 위젯</h3>
+<table><tr><th>위젯</th><th>보여 주는 것</th></tr>
+<tr><td>맥 상태 / 프로세서 / 메모리 / 네트워크</td><td>사용률과 실시간 그래프. 네트워크는 꾹 눌러 연결을 고릅니다.</td></tr>
+<tr><td>저장 공간 / 배터리</td><td>디스크 여유 공간, 맥북과 블루투스 기기의 배터리.</td></tr>
+<tr><td>오늘 사용 시간</td><td>오늘 앱마다 쓴 시간.</td></tr>
+<tr><td>프로세스</td><td>CPU를 많이 쓰는 것. 중간·크게에서는 ✕로 끌 수 있습니다.</td></tr>
+<tr><td>인터넷</td><td>응답 속도, 바깥 IP 주소, 최근 끊긴 기록.</td></tr>
+<tr><td>지금 재생 중</td><td>음악 앱, Spotify, 크롬의 유튜브 조작.</td></tr>
+<tr><td>최근 파일 / 다운로드</td><td>한 번 눌러 미리보기, 두 번 눌러 맥에서 열기.</td></tr>
+<tr><td>클립보드</td><td>맥에서 복사한 것. <strong>아이패드 → 맥</strong>으로 거꾸로 보낼 수도 있습니다.</td></tr>
+<tr><td>타임머신</td><td>마지막 백업 시각.</td></tr>
+<tr><td>NAS</td><td>시놀로지 NAS의 저장 공간과 디스크 온도 (Helper의 <strong>NAS 연결하기…</strong>에서 설정).</td></tr>
+<tr><td>렌더링</td><td>파이널 컷 프로·Compressor·프리미어 프로·다빈치 리졸브의 내보내기 진행률. 파이널 컷은 백그라운드 작업 창(<kbd>⌘9</kbd>)을 열어 두세요. 손쉬운 사용 허용이 필요합니다.</td></tr></table>
+
+<h2 id="ko-music">6. 음악 페이지</h2>
+<p>위젯 판 맨 뒤 페이지에서 맥의 음악 앱을 다룹니다.</p>
+<ul>
+  <li><strong>위</strong>: 앨범 표지, 끌어서 옮기는 재생 막대, 셔플·이전·재생·다음·반복, 음량.</li>
+  <li><strong>아래</strong>: 플레이리스트와 최근 추가된 앨범. 누르면 곡 목록이 나오고, 곡을 누르면 맥에서 재생됩니다.
+      <strong>재생</strong>·<strong>셔플</strong>로 전체 재생.</li>
+  <li>곡이 500개가 넘는 플레이리스트는 앞 500곡만 보입니다.</li>
+  <li>Helper 처음 설정의 "음악 조작" 허용이 필요합니다.</li>
+</ul>
+
+<h2 id="ko-controls">7. 조작 줄</h2>
+<table><tr><th>타일</th><th>누르기</th><th>꾹 누르기</th></tr>
+<tr><td>사운드</td><td>끌어서 음량, 스피커를 눌러 음소거</td><td>소리 출력 장치 고르기</td></tr>
+<tr><td>Wi-Fi</td><td>켜기·끄기 (끌 때는 한 번 묻습니다)</td><td>주변 네트워크에 접속 (위치 허용 필요)</td></tr>
+<tr><td>AirDrop</td><td>켜기(연락처만)·끄기</td><td>끄기 / 연락처만 / 모든 사람</td></tr>
+<tr><td>집중 모드</td><td>방해금지 모드 켜기·끄기</td><td>다른 집중 모드 고르기</td></tr>
+<tr><td>다크 모드</td><td>라이트 ↔ 다크</td><td>—</td></tr>
+<tr><td>화면 끄기</td><td>맥 화면 끄기</td><td>—</td></tr>
+<tr><td>미션 컨트롤 / 스크린샷</td><td>맥에서 열기</td><td>—</td></tr></table>
+<ul>
+  <li>집중 모드를 처음 쓸 때 맥이 단축어를 추가할지 물으면 <strong>추가</strong>를 한 번 누르세요. 맥은 앱이 집중 모드를 바꾸는 것을 단축어로만 허용합니다.</li>
+  <li>넣고 빼기: 앱 아이콘을 꾹 누르기 → <strong>홈 화면 편집</strong>. 타일에 <strong>−</strong>가 생기고, <strong>+ 추가</strong> 타일로 더 넣습니다.</li>
+  <li>소리 출력이 오디오 인터페이스면 음량은 기기의 손잡이로 조절합니다.</li>
+</ul>
+
+<h2 id="ko-bookmarks">8. 즐겨찾기 줄</h2>
+<ul>
+  <li>처음에는 비어 있습니다. <strong>가져오기</strong>를 누르고 <strong>Safari</strong>나 <strong>Chrome</strong>을 고르면 그 브라우저의 즐겨찾기 막대가 들어옵니다.</li>
+  <li>누르면 맥의 그 브라우저에서 열립니다. 폴더는 줄 안에서 열립니다.</li>
+  <li>브라우저를 바꾸거나 비우려면 맨 끝의 <strong>바꾸기</strong>를 누르세요.</li>
+  <li>즐겨찾기를 읽으려면 전체 디스크 접근이 필요합니다. 없으면 맥이 알맞은 설정과 짧은 안내를 저절로 띄웁니다.</li>
+  <li>Safari는 사이트 아이콘을 내주지 않아 기본 그림으로 보입니다.</li>
+</ul>
+
+<h2 id="ko-look">9. 배경과 유리</h2>
+<p>앱 아이콘을 꾹 누르기 → <strong>홈 화면 편집</strong> → <strong>배경</strong>.</p>
+<ul>
+  <li><strong>맥 배경화면</strong>을 따라가거나 <strong>사진에서 고르기</strong>. 막대로 흐리게 할 수 있습니다.</li>
+  <li><strong>유리</strong>: 투명하게 하면 배경이 더 비치고, 막대로 유리를 어둡게 합니다.</li>
+  <li><strong>연결 코드</strong>와 DashDeck Pro 상태도 여기서 봅니다.</li>
+</ul>
+<figure><img src="manual-ko-settings.jpg" alt="배경과 유리 설정과 연결 코드" loading="lazy">
+<figcaption>그림의 코드는 예시입니다.</figcaption></figure>
+
+<h2 id="ko-helper">10. 맥의 DashDeck Helper</h2>
+<p>Helper는 메뉴 막대에서 돌아가며 맥에 로그인하면 저절로 켜집니다. 메뉴에는 연결 상태와 다음이 있습니다:</p>
+<ul>
+  <li><strong>설정…</strong> — 아이패드 연결과 연결 코드, NAS, 기타(<strong>처음 설정 다시 보기…</strong>, <strong>즐겨찾기 가져오기</strong>,
+      <strong>즐겨찾기 권한 설정…</strong>, <strong>도우미 종료</strong>).</li>
+  <li><strong>NAS 연결하기…</strong> — 시놀로지 NAS의 주소·아이디·비밀번호. 비밀번호는 맥의 키체인에만 저장됩니다.</li>
+  <li><strong>새 버전 받기…</strong> — 이 사이트에 새 Helper가 올라오면 나타납니다. 하루에 한 번 확인합니다.</li>
+</ul>
+<table><tr><th>권한</th><th>쓰는 곳</th></tr>
+<tr><td>캘린더</td><td>일정 위젯의 맥 일정</td></tr>
+<tr><td>자동화 (음악·Spotify·Chrome)</td><td>지금 재생 중, 음악 페이지</td></tr>
+<tr><td>손쉬운 사용</td><td>렌더링 위젯</td></tr>
+<tr><td>위치</td><td>조작 줄의 Wi-Fi 이름</td></tr>
+<tr><td>전체 디스크 접근</td><td>즐겨찾기 줄, 집중 모드 목록</td></tr>
+<tr><td>로컬 네트워크</td><td>아이패드를 찾고 연결하기</td></tr></table>
+<p class="tip">메뉴 막대 아이콘이 안 보이면 응용 프로그램 폴더에서 DashDeck Helper를 한 번 더 열면 설정 창이 뜹니다.
+아이콘을 보이게 하려면: 시스템 설정 → 메뉴 막대 → 메뉴 막대에서 허용 → DashDeck Helper.</p>
+
+<h2 id="ko-pro">11. 무료 체험과 DashDeck Pro</h2>
+<ul>
+  <li>처음 켠 날부터 7일 동안은 전부 무료입니다.</li>
+  <li>그 뒤에도 아이패드만으로 되는 위젯은 무료입니다. 맥을 쓰는 기능 — 앱 실행 판, 파일, 음악, 조작 줄, 맥 위젯, 즐겨찾기 — 은
+      <strong>DashDeck Pro</strong>가 필요합니다.</li>
+  <li>Pro는 월 구독, 연 구독, 한 번 결제하는 평생 구매 세 가지입니다. 가격은 앱에서 내 나라 통화로 보입니다.</li>
+  <li><strong>구매 복원</strong>으로 새 아이패드에서도 Pro를 되찾습니다.</li>
+  <li>구독 해지: 설정 → 내 이름 → 구독, 또는 배경과 유리의 <strong>구독 관리</strong>.</li>
+</ul>
+<figure><img src="manual-ko-pro.jpg" alt="DashDeck Pro 구매 화면: 월 구독, 연 구독, 평생 구매" loading="lazy" style="max-width:420px"></figure>
+
+<h2 id="ko-trouble">12. 문제가 생겼을 때</h2>
+<table><tr><th>증상</th><th>해결</th></tr>
+<tr><td>"맥을 기다리는 중"에서 넘어가지 않음</td><td>DashDeck Helper가 켜져 있는지, 두 기기가 같은 와이파이인지 확인. 아이패드: 설정 → DashDeck → 로컬 네트워크 켜기. 맥: 시스템 설정 → 개인정보 보호 및 보안 → 로컬 네트워크 → DashDeck Helper 켜기.</td></tr>
+<tr><td>Helper에 "연결 코드가 맞지 않아요"</td><td>아이패드에 보이는 코드를 Helper 설정에 다시 넣기.</td></tr>
+<tr><td>"… 오래된 버전이에요"</td><td>안내에 나온 앱을 업데이트: DashDeck은 앱스토어, DashDeck Helper는 이 사이트.</td></tr>
+<tr><td>맥 위젯에 "맥에서 정보를 받지 못했어요"</td><td>DashDeck Helper가 켜져 있고 최신 버전인지 확인.</td></tr>
+<tr><td>지금 재생 중이 비어 있음</td><td>맥: 시스템 설정 → 개인정보 보호 및 보안 → 자동화 → DashDeck Helper의 음악·Spotify·Chrome 허용.</td></tr>
+<tr><td>크롬 유튜브 재생/멈춤이 안 됨</td><td>크롬 메뉴 → 보기 → 개발자 정보 → "Apple 이벤트의 자바스크립트 허용".</td></tr>
+<tr><td>렌더링 위젯이 비어 있음</td><td>DashDeck Helper의 손쉬운 사용 허용. 파이널 컷에서 백그라운드 작업 창(<kbd>⌘9</kbd>) 열기.</td></tr>
+<tr><td>즐겨찾기 줄이 비어 있음</td><td>가져오기를 누르고 브라우저 고르기. DashDeck Helper의 전체 디스크 접근 허용.</td></tr>
+<tr><td>NAS 위젯에 오류</td><td>Helper 메뉴 → NAS 설정에서 주소·아이디·비밀번호 확인.</td></tr>
+<tr><td>날씨가 안 나옴</td><td>아이패드: 설정 → DashDeck → 위치 → 앱을 사용하는 동안.</td></tr>
+<tr><td>터치가 안 됨</td><td>DashDeck을 위로 밀어 끄고 다시 열기.</td></tr></table>
+
+<h2 id="ko-notes">13. 알아 둘 것</h2>
+<ul>
+  <li>DashDeck이 켜져 있는 동안 아이패드 화면은 꺼지지 않습니다.</li>
+  <li>맥에서 복사한 글·그림은 클립보드 위젯에 나옵니다. 비밀번호 관리자에서 복사한 것은 넘어오지 않습니다.</li>
+  <li>Helper가 로그인할 때 켜지지 않게 하려면: 시스템 설정 → 일반 → 로그인 항목 → DashDeck Helper.</li>
+  <li>계정·클라우드·추적이 없습니다. <a href="privacy.html">개인정보 처리방침</a>을 보세요.</li>
+</ul>
+</section>
+
+<footer><a href="index.html">Support</a> · <a href="privacy.html">Privacy Policy</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></footer>
+
+<script>
+// 언어 목록 — index.html과 같은 방식. 고른 언어는 두 페이지가 함께 기억한다(sidedash-lang).
+const LANGS = [["en","English"],["ko","한국어"]];
+const TITLES = {en:"DashDeck — User Guide", ko:"DashDeck — 사용 설명서"};
+const nav = document.getElementById("langs");
+function show(code) {
+  document.querySelectorAll("section[data-lang]").forEach(s => s.classList.toggle("on", s.dataset.lang === code));
+  nav.querySelectorAll("button").forEach(b => b.setAttribute("aria-current", String(b.dataset.lang === code)));
+  document.documentElement.lang = code;
+  document.title = TITLES[code] || TITLES.en;
+  try { localStorage.setItem("sidedash-lang", code); } catch (e) {}
+}
+LANGS.forEach(([code, label]) => {
+  const b = document.createElement("button");
+  b.textContent = label; b.dataset.lang = code; b.type = "button";
+  b.addEventListener("click", () => show(code));
+  nav.appendChild(b);
+});
+let start = "en";
+try {
+  const saved = localStorage.getItem("sidedash-lang");
+  if (saved && LANGS.some(l => l[0] === saved)) start = saved;
+} catch (e) {}
+// 주소에 #ko-… 가 있으면 한국어로
+if (location.hash.startsWith("#ko-")) start = "ko";
+if (location.hash.startsWith("#en-")) start = "en";
+show(start);
+</script>
+</body>
+</html>
