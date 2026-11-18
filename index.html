@@ -16,6 +16,17 @@
   a { color: #0066cc; text-decoration: none; }
   .download { display: inline-block; background: #0066cc; color: #fff; border-radius: 999px;
          padding: 8px 20px; font-weight: 600; margin: .4em 0; }
+  .need { border: 1px solid #0066cc33; background: #0066cc0d; border-radius: 14px; padding: 14px 18px; margin: 1.2em 0; }
+  .need strong { color: #0066cc; }
+  .step { margin-top: 2.4em; }
+  .step h3 { font-size: 1.05em; margin: 0 0 .3em; display: flex; gap: .6em; align-items: baseline; }
+  .step h3 .n { flex: none; width: 1.7em; height: 1.7em; border-radius: 50%; background: #0066cc; color: #fff;
+         display: inline-grid; place-items: center; font-size: .85em; }
+  figure { margin: 1em 0 0; }
+  figure img { display: block; max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 24px #0002; }
+  figure img.mac { width: 520px; }
+  figcaption { font-size: .85em; color: #6e6e73; margin-top: .5em; }
+  .tip { font-size: .9em; color: #6e6e73; }
   footer { margin-top: 3em; font-size: .85em; color: #86868b; }
   nav.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
   nav.langs button { font: inherit; font-size: .82em; color: #1d1d1f; cursor: pointer;
@@ -28,6 +39,8 @@
     .tagline { color: #98989d; }
     a { color: #64a8ff; } footer { color: #8e8e93; }
     .download { background: #0a84ff; color: #fff; }
+    .need { border-color: #0a84ff55; background: #0a84ff1a; } .need strong { color: #64a8ff; }
+    .step h3 .n { background: #0a84ff; } figcaption, .tip { color: #98989d; }
     nav.langs button { background: #2c2c2e; color: #f2f2f7; }
     nav.langs button[aria-current="true"] { background: #0a84ff; color: #fff; }
   }
@@ -46,18 +59,56 @@
 sitting next to it. It has two parts: the <strong>DashDeck</strong> app on your iPad and the free
 <strong>DashDeck Helper</strong> on your Mac. They talk to each other directly over your own
 network — there is no account and no cloud service.</p>
+<div class="need"><strong>Two apps work together.</strong> DashDeck on your iPad (App Store) and the free
+<strong>DashDeck Helper</strong> on your Mac (download below). Without the Helper, the iPad-only widgets — clock, weather,
+calendar, notes, timer, health — still work, but nothing from your Mac appears.</div>
 
 <h2>Get DashDeck Helper for Mac</h2>
 <p><a class="download" href="DashDeckHelper.dmg">Download DashDeck Helper</a><br>
-Free. Requires macOS 14 or later. Open the downloaded file and drag DashDeck Helper into Applications.</p>
+Free. Requires macOS 14 or later. Step-by-step instructions with pictures are below.</p>
 
-<h2>Set up — four steps</h2>
-<ol>
-  <li>Install <strong>DashDeck</strong> on your iPad from the App Store and open it. An 8-character pairing code appears.</li>
-  <li>Open <strong>DashDeck Helper</strong> on your Mac. A setup window walks you through each step.</li>
-  <li>Type the pairing code into the setup window. Your Mac and iPad must be on the same Wi-Fi network (or connected by USB cable).</li>
-  <li>Allow the permissions you want. Each one explains what it turns on, and you can skip any of them.</li>
-</ol>
+<h2>Set up, step by step</h2>
+<p>Takes about 3 minutes. Your Mac and iPad must be on the same Wi-Fi network (or connected with a USB cable).</p>
+
+<div class="step"><h3><span class="n">1</span>Install DashDeck Helper on your Mac</h3>
+<p>Click <strong>Download DashDeck Helper</strong> above, open the downloaded <strong>DashDeckHelper.dmg</strong>,
+and drag <strong>DashDeck Helper</strong> onto the <strong>Applications</strong> folder.</p>
+<figure><img src="guide-dmg.png" alt="The DashDeck Helper disk image window: drag the app onto the Applications folder" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">2</span>Open DashDeck Helper</h3>
+<p>Open it from the Applications folder (or Spotlight). The first time, macOS asks whether to open an app downloaded from the
+internet — click <strong>Open</strong>. The app is signed and notarized by Apple. A DashDeck icon appears in the menu bar and
+a setup window opens in the middle of the screen. From then on it starts automatically when you log in.</p></div>
+
+<div class="step"><h3><span class="n">3</span>Open DashDeck on your iPad</h3>
+<p>An 8-character <strong>pairing code</strong> appears. If the iPad asks to find devices on your local network, tap
+<strong>Allow</strong>.</p>
+<figure><img src="guide-en-pad-code.jpg" alt="DashDeck on iPad waiting for the Mac, showing an 8-character pairing code" loading="lazy">
+<figcaption>Your own code is different. Only a Mac that knows this code can connect.</figcaption></figure></div>
+
+<div class="step"><h3><span class="n">4</span>Type the code into the Mac</h3>
+<p>Type the 8 letters into the setup window and click <strong>Connect</strong> (the dash is added for you).
+Within a few seconds the iPad shows your dashboard.</p>
+<figure><img class="mac" src="guide-en-mac-connect.png" alt="Setup window step 1: Connect Your iPad, with a field for the pairing code" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">5</span>Allow what you want to use</h3>
+<p>The setup window then asks for one permission at a time and moves on by itself once it's allowed.
+Every step can be skipped — you can come back later from <strong>Run Setup Again</strong> in the settings window.</p>
+<ul>
+  <li><strong>Calendar</strong> — your Mac's events in the calendar widget.</li>
+  <li><strong>Accessibility</strong> — export progress from video editing apps.</li>
+  <li><strong>Music Control</strong> — the music page and play/skip buttons.</li>
+  <li><strong>Location</strong> — nearby Wi-Fi names in the control strip (macOS treats them as location).</li>
+  <li><strong>Full Disk Access</strong> (last) — your browser bookmarks bar and the Focus list. macOS quits and reopens the
+      Helper once after you allow it; that's expected.</li>
+</ul>
+<figure><img class="mac" src="guide-en-mac-calendar.png" alt="Setup window: Calendar step with an Allow Calendar button" loading="lazy"></figure>
+<figure><img class="mac" src="guide-en-mac-disk.png" alt="Setup window: Full Disk Access step with three short instructions" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">6</span>Done</h3>
+<p>Click <strong>Get Started</strong>. Your Mac's apps, files, music and status are now on the iPad.</p>
+<figure><img class="mac" src="guide-en-mac-finish.png" alt="Setup window: All set" loading="lazy"></figure>
+<figure><img src="guide-en-done.jpg" alt="DashDeck on iPad connected to the Mac" loading="lazy"></figure></div>
 
 <h2>FAQ</h2>
 <p><strong>The iPad keeps saying "Waiting for your Mac".</strong><br>
@@ -87,18 +138,56 @@ Open DashDeck Helper again from Applications or Spotlight and the settings windo
 <p>DashDeck은 맥 옆에 둔 아이패드에 맥의 앱·파일·음악·시스템 상태·빠른 조작을 올려 줍니다.
 아이패드의 <strong>DashDeck</strong> 앱과 맥의 무료 <strong>DashDeck Helper</strong> 두 개로 이루어져 있습니다.
 둘은 내 네트워크 안에서 직접 주고받습니다. 계정도, 클라우드 서비스도 없습니다.</p>
+<div class="need"><strong>앱 두 개가 함께 동작합니다.</strong> 아이패드의 DashDeck(앱스토어)과 맥의 무료
+<strong>DashDeck Helper</strong>(아래에서 내려받기)입니다. Helper가 없어도 아이패드만으로 되는 위젯(시계·날씨·캘린더·메모·타이머·건강)은
+쓸 수 있지만, 맥의 정보와 조작은 나오지 않습니다.</div>
 
 <h2>맥용 DashDeck Helper 받기</h2>
 <p><a class="download" href="DashDeckHelper.dmg">DashDeck Helper 내려받기</a><br>
-무료. macOS 14 이상. 받은 파일을 열고 DashDeck Helper를 응용 프로그램 폴더로 끌어다 놓으세요.</p>
+무료. macOS 14 이상. 그림이 있는 자세한 순서는 아래에 있습니다.</p>
 
-<h2>설정 — 네 단계</h2>
-<ol>
-  <li>앱스토어에서 아이패드에 <strong>DashDeck</strong>을 설치하고 엽니다. 연결 코드 8글자가 보입니다.</li>
-  <li>맥에서 <strong>DashDeck Helper</strong>를 엽니다. 처음 설정 창이 순서대로 안내합니다.</li>
-  <li>설정 창에 연결 코드를 넣습니다. 맥과 아이패드는 같은 와이파이에 있어야 합니다 (USB 케이블로 이어도 됩니다).</li>
-  <li>원하는 권한을 허용합니다. 각 권한이 무엇을 켜는지 설명이 나오고, 건너뛸 수 있습니다.</li>
-</ol>
+<h2>설정 따라 하기</h2>
+<p>3분쯤 걸립니다. 맥과 아이패드는 같은 와이파이에 있어야 합니다 (USB 케이블로 이어도 됩니다).</p>
+
+<div class="step"><h3><span class="n">1</span>맥에 DashDeck Helper 설치</h3>
+<p>위의 <strong>DashDeck Helper 내려받기</strong>를 누르고, 받은 <strong>DashDeckHelper.dmg</strong>를 연 뒤
+<strong>DashDeck Helper</strong>를 <strong>Applications</strong>(응용 프로그램) 폴더로 끌어다 놓으세요.</p>
+<figure><img src="guide-dmg.png" alt="DashDeck Helper 설치 창: 앱을 응용 프로그램 폴더로 끌어다 놓기" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">2</span>DashDeck Helper 열기</h3>
+<p>응용 프로그램 폴더(또는 Spotlight)에서 여세요. 처음에는 맥이 "인터넷에서 받은 앱을 열까요?"라고 묻습니다 —
+<strong>열기</strong>를 누르세요. 애플의 서명과 공증을 받은 앱입니다. 메뉴 막대에 DashDeck 아이콘이 생기고 화면 가운데에
+처음 설정 창이 뜹니다. 그다음부터는 맥에 로그인하면 저절로 켜집니다.</p></div>
+
+<div class="step"><h3><span class="n">3</span>아이패드에서 DashDeck 열기</h3>
+<p>8글자 <strong>연결 코드</strong>가 보입니다. 아이패드가 "로컬 네트워크의 기기를 찾도록 허용할까요?"라고 물으면
+<strong>허용</strong>을 누르세요.</p>
+<figure><img src="guide-ko-pad-code.jpg" alt="아이패드의 DashDeck이 맥을 기다리며 8글자 연결 코드를 보여 주는 화면" loading="lazy">
+<figcaption>내 코드는 그림과 다릅니다. 이 코드를 아는 맥만 연결됩니다.</figcaption></figure></div>
+
+<div class="step"><h3><span class="n">4</span>맥에 코드 넣기</h3>
+<p>처음 설정 창에 8글자를 넣고 <strong>연결</strong>을 누르세요 (가운데 "-"는 저절로 들어갑니다).
+몇 초 안에 아이패드에 대시보드가 나타납니다.</p>
+<figure><img class="mac" src="guide-ko-mac-connect.png" alt="처음 설정 1단계: 아이패드와 연결하기, 연결 코드 입력 칸" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">5</span>쓰고 싶은 것 허용하기</h3>
+<p>이어서 권한을 하나씩 묻고, 허용되면 저절로 다음으로 넘어갑니다. 모든 단계는 건너뛸 수 있고,
+나중에 설정 창의 <strong>처음 설정 다시 보기</strong>에서 다시 할 수 있습니다.</p>
+<ul>
+  <li><strong>캘린더</strong> — 맥 일정을 일정 위젯에.</li>
+  <li><strong>손쉬운 사용</strong> — 영상 편집 앱의 내보내기 진행률.</li>
+  <li><strong>음악 조작</strong> — 음악 페이지와 재생·다음 곡 버튼.</li>
+  <li><strong>위치</strong> — 조작 줄의 주변 와이파이 이름 (맥은 와이파이 이름을 위치 정보로 취급합니다).</li>
+  <li><strong>전체 디스크 접근</strong> (마지막) — 브라우저 즐겨찾기 줄과 집중 모드 목록. 허용하면 맥이 Helper를 한 번
+      껐다 켭니다. 정상입니다.</li>
+</ul>
+<figure><img class="mac" src="guide-ko-mac-calendar.png" alt="처음 설정: 캘린더 단계와 캘린더 허용하기 버튼" loading="lazy"></figure>
+<figure><img class="mac" src="guide-ko-mac-disk.png" alt="처음 설정: 전체 디스크 접근 단계와 세 줄 안내" loading="lazy"></figure></div>
+
+<div class="step"><h3><span class="n">6</span>끝</h3>
+<p><strong>시작하기</strong>를 누르세요. 이제 맥의 앱·파일·음악·상태가 아이패드에 나옵니다.</p>
+<figure><img class="mac" src="guide-ko-mac-finish.png" alt="처음 설정: 준비 끝" loading="lazy"></figure>
+<figure><img src="guide-ko-done.jpg" alt="맥과 연결된 아이패드의 DashDeck" loading="lazy"></figure></div>
 
 <h2>자주 묻는 것</h2>
 <p><strong>아이패드가 계속 "맥을 기다리는 중"입니다.</strong><br>
